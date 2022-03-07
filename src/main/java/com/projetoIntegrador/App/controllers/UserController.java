@@ -26,7 +26,7 @@ import com.projetoIntegrador.App.service.UserService;
 
 @RestController
 @RequestMapping("/user")
-@CrossOrigin("*")
+@CrossOrigin(origins = "*", allowedHeaders = "*")
 public class UserController {
 	
 	@Autowired
@@ -60,7 +60,7 @@ public class UserController {
 		return userService.findUserById(id);
 	}
 
-	@GetMapping("/{razaoSocial}")
+	@GetMapping("/razao/{razaoSocial}")
 	public ResponseEntity<List<User>> GetByRazaoSocial(@PathVariable String razaoSocial){
 		return userService.getUserByRazaoSocial(razaoSocial);
 	}
